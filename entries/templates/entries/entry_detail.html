@@ -1,0 +1,14 @@
+{% extends "entries/base.html" %}
+
+{% block content %}
+    <article class="mt-4">
+        <h2 class="text-secondary">{{ entry.date_created|date:'Y-m-d H:i' }}</h2>
+        <h3 class="text-info">{{ entry.title }}</h3>
+        <p>{{ entry.content }}</p>
+    </article>
+    
+	<p>
+	    <a href="{% url 'entry-update' entry.id %}" class="btn btn-primary py-2 px-3">✍️ Edit</a>
+	    <a href="{% url 'entry-delete' entry.id %}" class="btn btn-danger py-2 px-3">⛔ Delete</a>
+	</p>
+{% endblock %}

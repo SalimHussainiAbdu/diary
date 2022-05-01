@@ -1,0 +1,13 @@
+{% extends "entries/base.html" %}
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <p>
+            Are you sure you want to delete <em>"{{ entry.title }}"</em><br>
+            created on {{ entry.date_created|date:'Y-m-d' }}?
+        </p>
+        <input type="submit" value="Confirm" class="btn btn-success">
+    </form>
+    <a href="{% url 'entry-detail' entry.id %}">
+        <button class="btn btn-danger mt-2">Cancel</button>
+    </a>
+{% endblock %}
